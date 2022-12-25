@@ -1,0 +1,47 @@
+{% extends 'back/base.html' %}
+{% block content %}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="toolbar">
+                            
+                            <!--Here you can write extra buttons/actions for the toolbar-->
+                        </div>
+                        <table id="bootstrap-table" class="table">
+                            <thead>
+                                <th data-field="state" data-checkbox="true"></th>
+                                <th data-field="id" class="text-center">No</th>
+                                <th data-field="name" data-sortable="true">Nama</th>
+                                <th data-field="email" data-sortable="true">Email</th>
+                                <th data-field="role" data-sortable="true">Is Staff</th>
+                                <th>Action</th>
+                            </thead>
+                            <tbody>
+                                {% for l in list_user %}
+                                <tr>
+                                    <td></td>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>{{l.username}}</td>
+                                    <td>{{l.email}}</td>
+                                    <td>{{l.is_staff}}</td>
+                                    <td>
+                                        <a class="btn btn-success btn-sm" href="{% url 'user_detil' l.id %}"><i class="bi bi-eye"></i></a>
+                                        <a class="btn btn-warning btn-sm" href="{% url 'user_edit' l.id %}"><i class="bi bi-pencil-square"></i></a>
+                                        <a onclick="return confirm('Anda akan menghapus user ini. Lanjutkan?');" class="btn btn-danger btn-sm" href="{% url 'user_delete' l.id%}"><i class="bi bi-trash3"></i></a>
+                                    </td>
+                                </tr>
+                                {% endfor %}                              
+                            </tbody>
+                        </table>
+                    </div>
+                </div><!--  end card  -->
+            </div> <!-- end col-md-12 -->
+        </div> <!-- end row -->
+    </div>
+</div>
+
+{% endblock content %}

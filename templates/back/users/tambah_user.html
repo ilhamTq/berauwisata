@@ -1,0 +1,68 @@
+{% comment %} {% extends 'back/base.html' %}
+{% block content %}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <form class="form-horizontal" method="POST">
+                        {% csrf_token %}
+                        <div class="card-header">
+                            <h4 class="card-title">
+                                {{title}}
+                            </h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-group">
+                                <label class="col-md control-label">Email</label>
+                                <div class="col-md-12">
+                                    <input type="text" name="email" placeholder="Email" class="form-control">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-md control-label">Username</label>
+                                <div class="col-md-12">
+                                    <input type="text" name="username" placeholder="Username" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md control-label">Password</label>
+                                <div class="col-md-12">
+                                    <input type="password" name="password" placeholder="Password" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md control-label">Role User</label>
+                                <div class="col-md-12">
+                                    <select name="group" id="group" class="selectpicker" data-style="btn btn-success btn-block" title="Pilih Role">
+                                        {% for g in group %}
+
+                                        <option value="{{ g.name }}">{{ g.name }}</option>
+
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="form-group">
+                                <label class="col-md"></label>
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-success btn-info">
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div> <!-- end card -->
+            </div> <!--  end col-md-6  -->
+        </div> <!-- end row -->
+    </div>
+</div>>
+
+{% endblock content %} {% endcomment %}

@@ -1,0 +1,48 @@
+{% extends 'back/base.html' %}
+{% block content %}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <form class="form-horizontal" method="POST">
+                        {% csrf_token %}
+                        <div class="card-header">
+                            <h4 class="card-title">
+                                {{title}}
+                            </h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-group">
+                                <label class="col-md control-label">Judul</label>
+                                <div class="col-md-12">
+                                    <input type="text" name="judul" placeholder="Judul" class="form-control" value="{{artikel.judul}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md control-label">Isi</label>
+                                <div class="col-md-12">
+                                    <textarea name="isi" id="" cols="30" rows="10" class="form-control" placeholder="Isi Artikel">{{artikel.isi}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="form-group">
+                                <label class="col-md"></label>
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-success btn-info">
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div> <!-- end card -->
+            </div> <!--  end col-md-6  -->
+        </div> <!-- end row -->
+    </div>
+</div>
+
+{% endblock content %}
